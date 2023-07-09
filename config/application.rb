@@ -10,7 +10,7 @@ module Blogapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.time_zone = 'Tokyo' 
+    config.time_zone = 'Tokyo'                        #時間をJSTにした(13,14)
     config.active_record.default_timezone = :local
 
     # Settings in config/environments/* take precedence over those specified here.
