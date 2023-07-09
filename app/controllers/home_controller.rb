@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
     def index
-      @title = 'blogapp'
+      @article = Article.first
       render 'home/index'
     end
 
