@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         #saveはDBにインスタンスを保存するメソッド
-        if @article.save 
+        if @article.save
             #保存した記事の詳細ページを映す
             redirect_to article_path(@article), notice: '保存しました'
         else
