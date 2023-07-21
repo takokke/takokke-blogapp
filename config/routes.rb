@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # get '/' => 'articles#index'　と一緒 
   #articles.rbのindexメソッドを呼ぶ'
   root to: 'articles#index'
-  resources :articles, only: [:show, :new, :create, :edit, :update]
+  resources :articles, only: [:show, :new, :create, :edit, :update, :destroy]
 end

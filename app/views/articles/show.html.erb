@@ -10,7 +10,13 @@
       <div class="dropdown">
         <%= image_tag 'actions.svg',class: 'dropbtn'%>
         <div class="dropdown-content">
-        <%= link_to "編集する",edit_article_path(id: @article.id)%>
+
+        <% #edit.html.erbに遷移するリンク %>
+        <%= link_to "編集する",edit_article_path(@article)%>
+
+        <% #link_toは、デフォルトだとgetリクエストになる %>
+        <% #dateのmethod以外に、confirmを指定するとアラートが出てくる %>
+        <%= link_to "削除する", article_path(@article), data: { method: 'delete' , confirm: "本当に削除してもよろしいですか？" } %>
         </div>
       </div>
     </div>

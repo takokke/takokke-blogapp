@@ -38,6 +38,13 @@ class ArticlesController < ApplicationController
             render :edit         #このメソッド内の@articleがedit.html.erbに引き継がれる
         end
     end
+
+    def destroy
+        article = Article.find(params[:id])
+        article.destroy!
+        redirect_to root_path, notice: '削除しました'
+    end
+
     private
     # ブラウザからサーバへ送られるデータ(params)のうち、titleとcontentのみサーバは保存する
     # Strong Parameterを返却するメソッド
