@@ -16,6 +16,6 @@ textarea {
     margin: 8px 0px;
     padding: 8px 8px;
     min-height: 440px;
-    resize: vertical;
+    resize: vertical; //横方向を固定、縦方向だけサイズが変えられる
     border: 1px solid #EBEBEB;
 }
