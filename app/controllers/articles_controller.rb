@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     before_action :set_article, only: [:show, :edit, :update]
 
     def index
-        @articles = Article.all #一覧を表示するときはindexを使う
+        @articles = Article.all
     end
 
     def show
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
         if @article.update(article_params)      # updateメソッド実行
             redirect_to article_path(@article), notice: '更新できました'
         else
-            flash.now[:error] = "更新できませんでした"
+            flash.now[:error] = '更新できませんでした'
             render :edit         #このメソッド内の@articleがedit.html.erbに引き継がれる
         end
     end
