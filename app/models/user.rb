@@ -21,4 +21,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :articles, dependent: :destroy
+  #複数形がポイント
+  #相手モデルのbelongs_toとセット
+
+  def has_written?(article)
+    articles.exists?(id: article.id)
+  end
+
+  # 「kotetsuman.0707」@gmail.com
+  def display_name
+    self.email.split('@').first
+    # => ['kotetsuman.0707', 'gmail.com']
+  end
 end
