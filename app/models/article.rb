@@ -3,10 +3,15 @@
 # Table name: articles
 #
 #  id         :integer          not null, primary key
-#  content    :text
-#  title      :string
+#  content    :text             not null
+#  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer          not null
+#
+# Indexes
+#
+#  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
     #バリデーションチェック
@@ -21,9 +26,15 @@ class Article < ApplicationRecord
 
     validate :validate_title_and_content_length
 
+    belongs_to :user #相手モデルのhas_many :複数形 とセット
+
     def display_created_at
         #I18n は、internationalizationの略 internationalizationの先頭の文字i、最後の文字n、その間の文字数が18なので、I18nと略されている
         I18n.l(self.created_at, format: :default)
+    end
+
+    def author_name
+        self.user.display_name
     end
 
     private
