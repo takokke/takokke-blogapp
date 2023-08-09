@@ -7,15 +7,16 @@ class ArticlesController < ApplicationController
     end
 
     def show
+        @comments = @article.comments
     end
 
     def new
+        #慣習的に関連するモデルを生成するときは、buildを使う
         @article = current_user.articles.build
     end
 
     def create
         @article = current_user.articles.build(article_params)
-
         #saveはDBにインスタンスを保存するメソッド
         if @article.save
             #保存した記事の詳細ページを映す

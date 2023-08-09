@@ -26,6 +26,7 @@ class Article < ApplicationRecord
 
     validate :validate_title_and_content_length
 
+    has_many :comments, dependent: :destroy
     belongs_to :user #相手モデルのhas_many :複数形 とセット
 
     def display_created_at
