@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:new, :create]
   end
+
+  # resourceのときは、show,edit,updateで作る時が多い
+  resource :profile, only: [:show, :edit, :update]
 end
