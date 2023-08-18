@@ -1,7 +1,7 @@
 .container
   = render "tabs"
   - @articles.each do |article| # =は表示という意味
-    = render "article", article: article #x: y 呼び出し先のxはyだよという意味
+    = render 'commons/article', article: article #x: y 呼び出し先のxはyだよという意味
   = link_to new_article_path do
     .float-btn
       %i.fa.fa-plus
