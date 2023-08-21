@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
     # ブラウザからサーバへ送られるデータ(params)のうち、titleとcontentのみサーバは保存する
     # Strong Parameterを返却するメソッド
     def article_params
-        params.require(:article).permit(:title, :content)
+        params.require(:article).permit(:title, :content, :eyecatch)
     end
 
     def set_article
