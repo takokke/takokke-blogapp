@@ -14,6 +14,7 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+    has_one_attached :eyecatch
     #バリデーションチェック
 
     validates :title, presence: true
@@ -27,6 +28,7 @@ class Article < ApplicationRecord
     validate :validate_title_and_content_length
 
     has_many :comments, dependent: :destroy
+    has_many :likes, dependent: :destroy
     belongs_to :user #相手モデルのhas_many :複数形 とセット
 
     def display_created_at
@@ -35,12 +37,16 @@ class Article < ApplicationRecord
     end
 
     def author_name
-        self.user.display_name
+        user.display_name
+    end
+
+    def like_count
+        likes.count
     end
 
     private
     def validate_title_and_content_length
         char_count = self.title.length + self.content.length
-        errors.add(:base, 'タイトルと内容、合わせて10文字いじょうで！(謎)') unless char_count > 10
+        errors.add(:base, 'タイトルと内容、合わせて2文字いじょうで！(謎)') unless char_count > 2
     end
 end

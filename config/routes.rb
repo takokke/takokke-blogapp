@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: [:new, :create]
+
+    # 複数形にするとurlでidを指定しなくてよくなる
+    resource :like, only: [:create, :destroy]
   end
 
   # resourceのときは、show,edit,updateで作る時が多い
   resource :profile, only: [:show, :edit, :update]
+
+  resources :favorites, only: [:index]
 end
