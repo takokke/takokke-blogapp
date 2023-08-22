@@ -10,8 +10,13 @@ module Blogapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    # config.time_zone = 'Tokyo'                        #時間をJSTにした(13,14)
-    # config.active_record.default_timezone = :local
+
+    Bundler.require(*Rails.groups)
+    if Rails.env.development? || Rails.env.test?
+      Dotenv::Railtie.load
+    end
+
+    Aws.use_bundled_cert!
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

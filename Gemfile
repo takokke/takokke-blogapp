@@ -23,9 +23,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'annotate'
+gem 'aws-sdk-core'
+gem 'aws-sdk-s3', require: false
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'faker'
 gem 'hamlit'
 
