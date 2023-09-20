@@ -32,6 +32,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'hamlit'
+gem 'obscenity'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

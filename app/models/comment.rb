@@ -14,7 +14,7 @@
 #
 class Comment < ApplicationRecord
     #バリデーションチェック
-    validates :content, presence: true
+    validates :content, presence: true, obscenity: true
 
     belongs_to :article
 end
