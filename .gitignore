@@ -27,6 +27,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/blacklist.yml
+
 
 /public/packs
 /public/packs-test
